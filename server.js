@@ -48,7 +48,7 @@ function weatherHandler(request,response){
 
 
 function trailsHandler(request,response){
-    superagent(`https://www.hikingproject.com/data/get-trails?lat=${coordArray[0]}&lon=${coordArray[1]}&maxDistance=10&key=${process.env.TRAIL_API_KEY}`).then(resp =>{
+    superagent(`https://www.hikingproject.com/data/get-trails?lat=${coordArray[0]}&lon=${coordArray[1]}&maxDistance=200&key=${process.env.TRAIL_API_KEY}`).then(resp =>{
         const availableTrails = resp.body.trails.map(value=>{
             return new Trail(value);
         })
